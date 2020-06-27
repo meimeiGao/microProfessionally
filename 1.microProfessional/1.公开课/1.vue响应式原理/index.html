@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="2.数据绑定(vue2写法).js"></script>
+  <script type="text/javascript">
+    var vm = new vue()
+    setTimeout(function () {
+      console.log('change');
+      console.log(vm.$data);
+      vm.$data.a = 4444
+    },2000)
+  </script>
+</body>
+</html>

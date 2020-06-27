@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  
+</head>
+<body>
+  <button id="btn">
+  来点我啊
+  </button>
+  <script type="text/javascript">
+    var btn = document.getElementById('btn')
+    function fn(){
+      console.log('我被触发了');
+    }
+    
+    let throttle = (fn,delay)=>{
+      var flag = true
+      return (...args)=>{
+        if(!flag) return
+        flag = false
+        setTimeout(()=>{
+          fn(...args)
+          flag = true
+        },delay)
+        
+      }
+    }
+    
+    btn.onclick = throttle(fn,1000)
+    
+  </script>
+</body>
+</html>

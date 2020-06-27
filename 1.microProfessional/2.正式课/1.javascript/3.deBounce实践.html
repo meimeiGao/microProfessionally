@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <input id='myInput' type="text">
+  <script>
+    let inputNode = document.getElementById('myInput')
+    inputNode.addEventListener('keyup',(e)=>{
+      doAjax(e.target.value)
+    })
+    let deBounce = (fn,delay)=>{
+      var timer = null
+      return (...args)=>{
+        if (timer) {
+          clearTimeout(timer)
+        }
+        timer = setTimeout(()=>{
+          fn(...args)
+        },delay);
+      }
+     
+    }
+    let ajax = (content)=>{
+      let message = content
+      let json = {message}
+      console.log(JSON.stringify(json))
+    }
+
+    let doAjax = deBounce(ajax,500)
+    
+  </script>
+</body>
+</html>
